@@ -191,6 +191,7 @@ namespace eosio {
             }
          }
 
+      //record the action so as making it to be a item in history
          void record_account_action( account_name n, const base_action_trace& act ) {
             auto& chain = chain_plug->chain();
             auto& db = chain.db();
@@ -214,6 +215,7 @@ namespace eosio {
 
          
 
+      //trace the action to find out what indeed happened
          void on_action_trace( const action_trace& at ) {
             if( filter( at ) ) {
                //idump((fc::json::to_pretty_string(at)));
